@@ -120,10 +120,18 @@
         document.title = resultFN + '\'s Blockchain CV';
         $("#fullName").text(resultFN);
       });
-
-      //set document title
-      //set full name
-      //set summary
+      cvInstance.getSummary.call(address, async function (errorSummary, resultSummary) {  
+        $("#summary").text(resultSummary);
+      });
+      cvInstance.numberOfProjects.call(address, async function (errorNumProjects, resultNumProjects) { 
+         let numberOfProjects = Number(resultNumProjects.valueOf());
+         for (i = 0; i < numberOfProjects; i++) {
+          cvInstance.getProjects.call(address, i, async function (errorProject, resultProject) { 
+            console.log(resultProject);
+          });
+         }
+      
+      });
       //set Projects
       //set Contacts
       //set Jobs
