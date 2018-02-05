@@ -70,22 +70,17 @@
         <br>
 <h3 id="jobs">Jobs</h3>
 <span id='jobList'>
-        <h4 id="company-name">Company Name</h4>
-        <h5 id="title">Title</h5>
-        <p>From [StarTime] to [EndTime]</p>
+  <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
         </span>
         <br>
 <h3 id="education">Education</h3>
 <span id='educationList'>
-        <h4 id="learning-center">Learning Center</h4>
-<h5 id="knowledgetitle">knowledgeTitle</h5>
-<p>From [StarTime] to [EndTime]</p>
+  <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
         </span>
         <br>
 <h3 id="jobs">Contacts</h3>
 <span id='contactList'>
-        <h4 id="company-name">TypoeOfService -> Username</h4>
-        
+  <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
         </span>
 
 
@@ -143,8 +138,8 @@
          for (i = 0; i < numberOfJobs; i++) {
           cvInstance.getJobs.call(address, i, async function (errorJob, resultJob) { 
             let htmlString ="";
-            htmlString += "<h4 id='name'>" + resultJob[0] + "</h4>";
-            htmlString += "<h5 id='description'>" + resultJob[1] + "</h5>";
+            htmlString += "<h4 id='description'>" + resultJob[1] + "</h5>";
+            htmlString += "<h5 id='name'>" + resultJob[0] + "</h4>";
             htmlString += "<p>Duties: " + resultJob[2] + "</p>";
             htmlString += "<p>Started: " + monthYearFromBigNum(resultJob[3]) + " to " + monthYearFromBigNum(resultJob[4]) + "</p>";
             $("#jobList").append(htmlString);
