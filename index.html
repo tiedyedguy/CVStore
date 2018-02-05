@@ -61,13 +61,11 @@
 
       <section id="main_content">
         <h3 id="welcome-to-github-pages">Executive Summary</h3>
-        <span id='summary'>Find a job, blah blah blah</span>
+        <span id='summary'><i class="fa fa-spinner fa-spin" style="font-size:24px"></i></span>
         <br>
         <h3 id="projects">Projects</h3>
 <span id='projectList'>
-  <h4 id="name-url">Name (url)</h4>
-<h5 id="description">Description</h5>
-<p>Started: [StartTime]</p>
+  <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
         </span>
         <br>
 <h3 id="jobs">Jobs</h3>
@@ -98,6 +96,7 @@
           <span class="ribbon-inner">            
               <p>Make your own Blockchain CV at <a href="https://github.com/tiedyedguy/CVStore">GitHub</a></p>      
           </span>
+          <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
           <span class="left-tail"></span>
           <span class="right-tail"></span>
         </span>
@@ -105,7 +104,7 @@
 
     </div>
     <script src="./js/web3.min.js"></script>
-    <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+    
     <script>
       let cvContactAddress = '0xd2B90CEbD84f3844E861F17C37C69B88f3365578';
       let cvABI = [	{		"constant": true,		"inputs": [			{				"name": "addressCV",				"type": "address"			}		],		"name": "numberOfJobs",		"outputs": [			{				"name": "",				"type": "uint256"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "index",				"type": "uint256"			}		],		"name": "deleteEducation",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "name",				"type": "string"			},			{				"name": "description",				"type": "string"			},			{				"name": "url",				"type": "string"			},			{				"name": "startTime",				"type": "uint256"			}		],		"name": "addProject",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": true,		"inputs": [			{				"name": "addressCV",				"type": "address"			}		],		"name": "numberOfEducations",		"outputs": [			{				"name": "",				"type": "uint256"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": true,		"inputs": [			{				"name": "addressCV",				"type": "address"			},			{				"name": "index",				"type": "uint256"			}		],		"name": "getJobs",		"outputs": [			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "uint256"			},			{				"name": "",				"type": "uint256"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "typeOfService",				"type": "string"			},			{				"name": "userName",				"type": "string"			}		],		"name": "addContact",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": true,		"inputs": [			{				"name": "addressCV",				"type": "address"			}		],		"name": "getSummary",		"outputs": [			{				"name": "",				"type": "string"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "learningCenter",				"type": "string"			},			{				"name": "degree",				"type": "string"			},			{				"name": "startTime",				"type": "uint32"			},			{				"name": "endTime",				"type": "uint32"			}		],		"name": "addEducation",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "index",				"type": "uint256"			}		],		"name": "deleteProject",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "index",				"type": "uint256"			},			{				"name": "learningCenter",				"type": "string"			},			{				"name": "degree",				"type": "string"			},			{				"name": "startTime",				"type": "uint32"			},			{				"name": "endTime",				"type": "uint32"			}		],		"name": "changeEducation",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": true,		"inputs": [			{				"name": "addressCV",				"type": "address"			}		],		"name": "numberOfContacts",		"outputs": [			{				"name": "",				"type": "uint256"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "fullName",				"type": "string"			}		],		"name": "setFullName",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "index",				"type": "uint256"			}		],		"name": "deleteJob",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": true,		"inputs": [			{				"name": "addressCV",				"type": "address"			}		],		"name": "numberOfProjects",		"outputs": [			{				"name": "",				"type": "uint256"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "summary",				"type": "string"			}		],		"name": "setSummary",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": true,		"inputs": [			{				"name": "addressCV",				"type": "address"			},			{				"name": "index",				"type": "uint256"			}		],		"name": "getProjects",		"outputs": [			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "uint256"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "companyName",				"type": "string"			},			{				"name": "title",				"type": "string"			},			{				"name": "duties",				"type": "string"			},			{				"name": "startTime",				"type": "uint32"			},			{				"name": "endTime",				"type": "uint32"			}		],		"name": "addJob",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "index",				"type": "uint256"			}		],		"name": "deleteContact",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": true,		"inputs": [			{				"name": "addressCV",				"type": "address"			},			{				"name": "index",				"type": "uint256"			}		],		"name": "getContacts",		"outputs": [			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "string"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": true,		"inputs": [			{				"name": "addressCV",				"type": "address"			},			{				"name": "index",				"type": "uint256"			}		],		"name": "getEducations",		"outputs": [			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "string"			},			{				"name": "",				"type": "uint256"			},			{				"name": "",				"type": "uint256"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "index",				"type": "uint256"			},			{				"name": "name",				"type": "string"			},			{				"name": "description",				"type": "string"			},			{				"name": "url",				"type": "string"			},			{				"name": "startTime",				"type": "uint256"			}		],		"name": "changeProject",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "index",				"type": "uint256"			},			{				"name": "typeOfService",				"type": "string"			},			{				"name": "userName",				"type": "string"			}		],		"name": "changeContact",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": false,		"inputs": [			{				"name": "index",				"type": "uint256"			},			{				"name": "companyName",				"type": "string"			},			{				"name": "title",				"type": "string"			},			{				"name": "duties",				"type": "string"			},			{				"name": "startTime",				"type": "uint32"			},			{				"name": "endTime",				"type": "uint32"			}		],		"name": "changeJob",		"outputs": [],		"payable": false,		"stateMutability": "nonpayable",		"type": "function"	},	{		"constant": true,		"inputs": [			{				"name": "addressCV",				"type": "address"			}		],		"name": "getFullName",		"outputs": [			{				"name": "",				"type": "string"			}		],		"payable": false,		"stateMutability": "view",		"type": "function"	},	{		"payable": true,		"stateMutability": "payable",		"type": "fallback"	}];
@@ -125,31 +124,70 @@
       });
       cvInstance.numberOfProjects.call(address, async function (errorNumProjects, resultNumProjects) { 
          let numberOfProjects = Number(resultNumProjects.valueOf());
-         console.log("Number Of Projects",numberOfProjects);
+         $("#projectList").empty();
+         
          for (i = 0; i < numberOfProjects; i++) {
           cvInstance.getProjects.call(address, i, async function (errorProject, resultProject) { 
             let htmlString ="";
             htmlString += "<h4 id='name'>" + resultProject[0] + " (<a href='" + resultProject[2] + "'>Link!</a>)</h4>";
-            htmlString += "<h5 id='description'>" + resultProject[1] + "</h5>";
+            htmlString += "<h5 id='title'>" + resultProject[1] + "</h5>";
             htmlString += "<p>Started: " + monthYearFromBigNum(resultProject[3]) + "</p>";
-            $("#projects").append(htmlString);
-              
-            console.log(resultProject);
+            $("#projectList").append(htmlString);
           });
          }
       });
-      //set Projects
-      //set Contacts
-      //set Jobs
-      //set Education
+      cvInstance.numberOfJobs.call(address, async function (errorNumJobs, resultNumJobs) { 
+         let numberOfJobs = Number(resultNumJobs.valueOf());
+         $("#jobList").empty();
+         
+         for (i = 0; i < numberOfJobs; i++) {
+          cvInstance.getJobs.call(address, i, async function (errorJob, resultJob) { 
+            let htmlString ="";
+            htmlString += "<h4 id='name'>" + resultJob[0] + "</h4>";
+            htmlString += "<h5 id='description'>" + resultJob[1] + "</h5>";
+            htmlString += "<p>Duties: " + resultJob[2] + "</p>";
+            htmlString += "<p>Started: " + monthYearFromBigNum(resultJob[3]) + " to " + monthYearFromBigNum(resultJob[4]) + "</p>";
+            $("#jobList").append(htmlString);
+          });
+         }
+      });
+      cvInstance.numberOfEducations.call(address, async function (errorNumEducations, resultNumEducations) { 
+         let numberOfEducations = Number(resultNumEducations.valueOf());
+         $("#educationList").empty();
+         
+         for (i = 0; i < numberOfEducations; i++) {
+          cvInstance.getEducations.call(address, i, async function (errorEducation, resultEducation) { 
+            let htmlString ="";
+            htmlString += "<h4 id='name'>" + resultEducation[0] + "</h4>";
+            htmlString += "<h5 id='description'>" + resultEducation[1] + "</h5>";
+            htmlString += "<p>Started: " + monthYearFromBigNum(resultEducation[2]) + " to " + monthYearFromBigNum(resultEducation[3]) + "</p>";
+            $("#educationList").append(htmlString);
+          });
+         }
+      });
+      cvInstance.numberOfContacts.call(address, async function (errorNumContacts, resultNumContacts) { 
+         let numberOfContacts = Number(resultNumContacts.valueOf());
+         $("#contactList").empty();
+         
+         for (i = 0; i < numberOfContacts; i++) {
+          cvInstance.getContacts.call(address, i, async function (errorContact, resultContact) { 
+            let htmlString ="";
+            htmlString += "<h4 id='name'>" + resultContact[0] + ": " + resultContact[1] + "</h4>";
+            $("#contactList").append(htmlString);
+          });
+         }
+      });
+      
 
       function monthYearFromBigNum(bigNum) {
+        
         console.log("BigNum",bigNum);
         let number = Number(bigNum.valueOf());
+        if (number == 0 ) return "Present";
         console.log("Number",number);
         let date = new Date(number * 1000);
         console.log("date",date);
-        return String(date.month + "/" + date.year);
+        return String(date.getMonth() + "/" + date.getFullYear());
       }
       </script>
     
