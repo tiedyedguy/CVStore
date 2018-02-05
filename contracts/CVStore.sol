@@ -72,7 +72,7 @@ contract CVStore {
     
     function deleteContact (uint index) public {
         require (index < CVs[msg.sender].contacts.length);
-        for (uint i = index; i<CVs[msg.sender].contacts.length - 1; i++){
+        for (uint i = index; i<CVs[msg.sender].contacts.length - 1; i++) {
             CVs[msg.sender].contacts[i] = CVs[msg.sender].contacts[i+1];
         }
         delete CVs[msg.sender].contacts[CVs[msg.sender].contacts.length-1];
@@ -87,7 +87,7 @@ contract CVStore {
         return (CVs[addressCV].contacts[index].typeOfService, CVs[addressCV].contacts[index].userName);
     }
     
-    function addJob (string companyName, string title, uint32 startTime, uint32 endTime) public{
+    function addJob (string companyName, string title, uint32 startTime, uint32 endTime) public {
         Job memory newJob = Job(companyName, title, startTime, endTime);
         CVs[msg.sender].jobs.push(newJob);
     }
@@ -100,7 +100,7 @@ contract CVStore {
     
     function deleteJob (uint index) public {
         require (index < CVs[msg.sender].jobs.length);
-        for (uint i = index; i<CVs[msg.sender].jobs.length - 1; i++){
+        for (uint i = index; i<CVs[msg.sender].jobs.length - 1; i++) {
             CVs[msg.sender].jobs[i] = CVs[msg.sender].jobs[i+1];
         }
         delete CVs[msg.sender].jobs[CVs[msg.sender].jobs.length-1];
@@ -115,7 +115,7 @@ contract CVStore {
         return (CVs[addressCV].jobs[index].companyName, CVs[addressCV].jobs[index].title,  CVs[addressCV].jobs[index].startTime, CVs[addressCV].jobs[index].endTime);
     }
     
-    function addEducation (string learningCenter, string knowledgeTitle, uint32 startTime, uint32 endTime) public{
+    function addEducation (string learningCenter, string knowledgeTitle, uint32 startTime, uint32 endTime) public {
         Education memory newEducation = Education(learningCenter, knowledgeTitle, startTime, endTime);
         CVs[msg.sender].educations.push(newEducation);
     }
@@ -128,7 +128,7 @@ contract CVStore {
     
     function deleteEducation (uint index) public {
         require (index < CVs[msg.sender].educations.length);
-        for (uint i = index; i<CVs[msg.sender].educations.length - 1; i++){
+        for (uint i = index; i<CVs[msg.sender].educations.length - 1; i++) {
             CVs[msg.sender].educations[i] = CVs[msg.sender].educations[i+1];
         }
         delete CVs[msg.sender].educations[CVs[msg.sender].educations.length-1];
@@ -143,7 +143,7 @@ contract CVStore {
         return (CVs[addressCV].educations[index].learningCenter, CVs[addressCV].educations[index].knowledgeTitle,  CVs[addressCV].educations[index].startTime, CVs[addressCV].educations[index].endTime);
     }
 
-    function addProject (string name, string description, string url, uint startTime) public{
+    function addProject (string name, string description, string url, uint startTime) public {
         Project memory newProject = Project(name, description, url, startTime);
         CVs[msg.sender].projects.push(newProject);
     }
@@ -156,7 +156,7 @@ contract CVStore {
     
     function deleteProject (uint index) public {
         require (index < CVs[msg.sender].projects.length);
-        for (uint i = index; i<CVs[msg.sender].projects.length - 1; i++){
+        for (uint i = index; i<CVs[msg.sender].projects.length - 1; i++) {
             CVs[msg.sender].projects[i] = CVs[msg.sender].projects[i+1];
         }
         delete CVs[msg.sender].projects[CVs[msg.sender].projects.length-1];
