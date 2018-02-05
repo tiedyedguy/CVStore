@@ -129,7 +129,7 @@
          for (i = 0; i < numberOfProjects; i++) {
           cvInstance.getProjects.call(address, i, async function (errorProject, resultProject) { 
             let htmlString ="";
-            htmlString += "<h4 id='name'>" + resultProject[0] + " (" + resultProject[2] + ")</h4>";
+            htmlString += "<h4 id='name'>" + resultProject[0] + " (<a href='" + resultProject[2] + "'>Link!</a>)</h4>";
             htmlString += "<h5 id='description'>" + resultProject[1] + "</h5>";
             htmlString += "<p>Started: " + monthYearFromBigNum(resultProject[3]) + "</p>";
             $("#projects").append(htmlString);
@@ -144,8 +144,11 @@
       //set Education
 
       function monthYearFromBigNum(bigNum) {
+        console.log("BigNum",bigNum);
         let number = Number(bigNum.valueOf());
-        let date = newDate(number * 1000);
+        console.log("Number",number);
+        let date = new Date(number * 1000);
+        console.log("date",date);
         return String(date.month + "/" + date.year);
       }
       </script>
