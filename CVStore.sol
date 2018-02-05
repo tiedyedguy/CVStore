@@ -30,6 +30,7 @@ contract CVStore {
     
     struct FullCV {
         string fullName;
+        string summary;
         Contact[] contacts;
         Job[] jobs;
         Education[] educations;
@@ -48,6 +49,14 @@ contract CVStore {
     
     function getFullName (address addressCV) view public returns (string) {
         return CVs[addressCV].fullName;
+    }
+
+    function setSummary (string summary) public {
+        CVs[msg.sender].summary = summary;
+    }
+    
+    function getSummary (address addressCV) view public returns (string) {
+        return CVs[addressCV].summary;
     }
     
      function addContact (string typeOfService, string userName) public {
