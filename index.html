@@ -128,6 +128,12 @@
          console.log("Number Of Projects",NumberOfProjects);
          for (i = 0; i < numberOfProjects; i++) {
           cvInstance.getProjects.call(address, i, async function (errorProject, resultProject) { 
+            let htmlString ="";
+            htmlString += "<h4 id='name'>" + resultProject[0] + " (" + resultProject[2] + ")</h4>";
+            htmlString += "<h5 id='description'>" + resultProject[1] + "</h5>";
+            htmlString += "<p>Started: " + monthYearFromBigNum(resultProject[3]) + "</p>";
+            $("#projects").append(htmlString);
+              
             console.log(resultProject);
           });
          }
@@ -136,6 +142,12 @@
       //set Contacts
       //set Jobs
       //set Education
+
+      function monthYearFromBigNum(bigNum) {
+        let number = Number(bigNum.valeOf());
+        let date = newDate(number * 1000);
+        return String(date.month + "/" + date.year);
+      }
       </script>
     
   </body>
