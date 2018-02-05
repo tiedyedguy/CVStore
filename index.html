@@ -144,7 +144,7 @@
       //set Education
 
       function monthYearFromBigNum(bigNum) {
-        let number = Number(bigNum.valeOf());
+        let number = Number(bigNum.valueOf());
         let date = newDate(number * 1000);
         return String(date.month + "/" + date.year);
       }
