@@ -59,7 +59,7 @@ contract CVStore {
         return CVs[addressCV].summary;
     }
     
-     function addContact (string typeOfService, string userName) public {
+    function addContact (string typeOfService, string userName) public {
         Contact memory newContact = Contact(typeOfService, userName);
         CVs[msg.sender].contacts.push(newContact);
     }
@@ -72,7 +72,7 @@ contract CVStore {
     
     function deleteContact (uint index) public {
         require (index < CVs[msg.sender].contacts.length);
-        for (uint i = index; i<CVs[msg.sender].contacts.length -1; i++){
+        for (uint i = index; i<CVs[msg.sender].contacts.length - 1; i++){
             CVs[msg.sender].contacts[i] = CVs[msg.sender].contacts[i+1];
         }
         delete CVs[msg.sender].contacts[CVs[msg.sender].contacts.length-1];
@@ -100,7 +100,7 @@ contract CVStore {
     
     function deleteJob (uint index) public {
         require (index < CVs[msg.sender].jobs.length);
-        for (uint i = index; i<CVs[msg.sender].jobs.length -1; i++){
+        for (uint i = index; i<CVs[msg.sender].jobs.length - 1; i++){
             CVs[msg.sender].jobs[i] = CVs[msg.sender].jobs[i+1];
         }
         delete CVs[msg.sender].jobs[CVs[msg.sender].jobs.length-1];
@@ -128,7 +128,7 @@ contract CVStore {
     
     function deleteEducation (uint index) public {
         require (index < CVs[msg.sender].educations.length);
-        for (uint i = index; i<CVs[msg.sender].educations.length -1; i++){
+        for (uint i = index; i<CVs[msg.sender].educations.length - 1; i++){
             CVs[msg.sender].educations[i] = CVs[msg.sender].educations[i+1];
         }
         delete CVs[msg.sender].educations[CVs[msg.sender].educations.length-1];
@@ -156,7 +156,7 @@ contract CVStore {
     
     function deleteProject (uint index) public {
         require (index < CVs[msg.sender].projects.length);
-        for (uint i = index; i<CVs[msg.sender].projects.length -1; i++){
+        for (uint i = index; i<CVs[msg.sender].projects.length - 1; i++){
             CVs[msg.sender].projects[i] = CVs[msg.sender].projects[i+1];
         }
         delete CVs[msg.sender].projects[CVs[msg.sender].projects.length-1];
@@ -169,17 +169,6 @@ contract CVStore {
     
     function getProjects (address addressCV, uint index) view public returns(string, string, string, uint) {
         return (CVs[addressCV].projects[index].name, CVs[addressCV].projects[index].description,  CVs[addressCV].projects[index].url, CVs[addressCV].projects[index].startTime);
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }   
     
 }
