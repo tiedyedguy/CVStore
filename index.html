@@ -116,10 +116,10 @@
       cvStore = web3.eth.contract(cvABI);
       cvInstance = cvStore.at(cvContactAddress);
 
-      await cvInstance.getFullName.call(address, async function (errorFN, resultFN) {
+      cvInstance.getFullName.call(address, async function (errorFN, resultFN) {
         document.title = resultFN + '\'s Blockchain CV';
         $("#fullName").text(resultFN);
-      }
+      });
 
       //set document title
       //set full name
