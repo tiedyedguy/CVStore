@@ -141,8 +141,8 @@
             let htmlString ="";
             htmlString += "<h4 id='description'>" + resultJob[1] + "</h5>";
             htmlString += "<h5 id='name'>" + resultJob[0] + "</h4>";
-            htmlString += "<p>Duties: " + resultJob[2] + "</p>";
-            htmlString += "<p>Started: " + monthYearFromBigNum(resultJob[3]) + " to " + monthYearFromBigNum(resultJob[4]) + "</p>";
+            htmlString += "<p>Duties: " + resultJob[2] + "<br>";
+            htmlString += "Started: " + monthYearFromBigNum(resultJob[3]) + " to " + monthYearFromBigNum(resultJob[4]) + "</p>";
             $("#jobList").append(htmlString);
           });
          }
@@ -168,7 +168,7 @@
          for (i = 0; i < numberOfContacts; i++) {
           cvInstance.getContacts.call(address, i, async function (errorContact, resultContact) { 
             let htmlString ="";
-            htmlString += "<h4 id='name'>" + resultContact[0] + ": " + resultContact[1] + "</h4>";
+            htmlString += "<h4 id='name'>" + contactFormat(resultContact) + "</h4>";
             $("#contactList").append(htmlString);
           });
          }
@@ -184,6 +184,22 @@
         let date = new Date(number * 1000);
         console.log("date",date);
         return String(date.getMonth() + "/" + date.getFullYear());
+      }
+
+      function contactFormat(contactIn) {
+        
+          switch (contactIn[0].toLowerCase()) {
+            case "twitter":
+              return "Twitter: <a href='https://twitter.com/" + contactIn[1] + "'>" + contactIn[1] + "</a>";
+            case "linkedin":
+              return "LinkedIn: <a href='https://www.linkedin.com/in/" + contactIn[1] + "'>" + contactIn[1] + "</a>";  
+            case "github":
+              return "GitHub: <a href='https://github.com/" + contactIn[1] + "'>" + contactIn[1] + "</a>";
+            case "email":
+              return "Email: <a href='mailto:" + contactIn[1] + "'>" + contactIn[1] + "</a>";
+            default:
+              return resultContact[0] + ": " + resultContact[1];
+          }
       }
       </script>
     

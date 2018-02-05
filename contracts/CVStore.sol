@@ -10,13 +10,14 @@ contract CVStore {
     struct Job {
         string companyName;
         string title;
+        string duties;
         uint startTime;
         uint endTime;
     }
     
     struct Education {
         string learningCenter;
-        string knowledgeTitle;
+        string degree;
         uint startTime;
         uint endTime;
     }
@@ -72,7 +73,7 @@ contract CVStore {
     
     function deleteContact (uint index) public {
         require (index < CVs[msg.sender].contacts.length);
-        for (uint i = index; i<CVs[msg.sender].contacts.length - 1; i++) {
+        for (uint i = index; i<CVs[msg.sender].contacts.length - 1; i++){
             CVs[msg.sender].contacts[i] = CVs[msg.sender].contacts[i+1];
         }
         delete CVs[msg.sender].contacts[CVs[msg.sender].contacts.length-1];
@@ -87,20 +88,20 @@ contract CVStore {
         return (CVs[addressCV].contacts[index].typeOfService, CVs[addressCV].contacts[index].userName);
     }
     
-    function addJob (string companyName, string title, uint32 startTime, uint32 endTime) public {
-        Job memory newJob = Job(companyName, title, startTime, endTime);
+    function addJob (string companyName, string title, string duties, uint32 startTime, uint32 endTime) public{
+        Job memory newJob = Job(companyName, title, duties, startTime, endTime);
         CVs[msg.sender].jobs.push(newJob);
     }
     
-    function changeJob (uint index, string companyName, string title, uint32 startTime, uint32 endTime) public {
+    function changeJob (uint index, string companyName, string title, string duties, uint32 startTime, uint32 endTime) public {
         require(index < CVs[msg.sender].jobs.length);
-        Job memory newJob = Job(companyName, title, startTime, endTime);
+        Job memory newJob = Job(companyName, title, duties, startTime, endTime);
         CVs[msg.sender].jobs[index] = newJob;
     }
     
     function deleteJob (uint index) public {
         require (index < CVs[msg.sender].jobs.length);
-        for (uint i = index; i<CVs[msg.sender].jobs.length - 1; i++) {
+        for (uint i = index; i<CVs[msg.sender].jobs.length - 1; i++){
             CVs[msg.sender].jobs[i] = CVs[msg.sender].jobs[i+1];
         }
         delete CVs[msg.sender].jobs[CVs[msg.sender].jobs.length-1];
@@ -111,24 +112,24 @@ contract CVStore {
         return CVs[addressCV].jobs.length;
     }
     
-    function getJobs (address addressCV, uint index) view public returns(string, string, uint, uint) {
-        return (CVs[addressCV].jobs[index].companyName, CVs[addressCV].jobs[index].title,  CVs[addressCV].jobs[index].startTime, CVs[addressCV].jobs[index].endTime);
+    function getJobs (address addressCV, uint index) view public returns(string, string, string, uint, uint) {
+        return (CVs[addressCV].jobs[index].companyName, CVs[addressCV].jobs[index].title,  CVs[addressCV].jobs[index].duties, CVs[addressCV].jobs[index].startTime, CVs[addressCV].jobs[index].endTime);
     }
     
-    function addEducation (string learningCenter, string knowledgeTitle, uint32 startTime, uint32 endTime) public {
-        Education memory newEducation = Education(learningCenter, knowledgeTitle, startTime, endTime);
+    function addEducation (string learningCenter, string degree, uint32 startTime, uint32 endTime) public{
+        Education memory newEducation = Education(learningCenter, degree, startTime, endTime);
         CVs[msg.sender].educations.push(newEducation);
     }
     
-    function changeEducation (uint index, string learningCenter, string knowledgeTitle, uint32 startTime, uint32 endTime) public {
+    function changeEducation (uint index, string learningCenter, string degree, uint32 startTime, uint32 endTime) public {
         require(index < CVs[msg.sender].educations.length);
-        Education memory newEducation = Education(learningCenter, knowledgeTitle, startTime, endTime);
+        Education memory newEducation = Education(learningCenter, degree, startTime, endTime);
         CVs[msg.sender].educations[index] = newEducation;
     }
     
     function deleteEducation (uint index) public {
         require (index < CVs[msg.sender].educations.length);
-        for (uint i = index; i<CVs[msg.sender].educations.length - 1; i++) {
+        for (uint i = index; i<CVs[msg.sender].educations.length - 1; i++){
             CVs[msg.sender].educations[i] = CVs[msg.sender].educations[i+1];
         }
         delete CVs[msg.sender].educations[CVs[msg.sender].educations.length-1];
@@ -140,10 +141,10 @@ contract CVStore {
     }
     
     function getEducations (address addressCV, uint index) view public returns(string, string, uint, uint) {
-        return (CVs[addressCV].educations[index].learningCenter, CVs[addressCV].educations[index].knowledgeTitle,  CVs[addressCV].educations[index].startTime, CVs[addressCV].educations[index].endTime);
+        return (CVs[addressCV].educations[index].learningCenter, CVs[addressCV].educations[index].degree,  CVs[addressCV].educations[index].startTime, CVs[addressCV].educations[index].endTime);
     }
 
-    function addProject (string name, string description, string url, uint startTime) public {
+    function addProject (string name, string description, string url, uint startTime) public{
         Project memory newProject = Project(name, description, url, startTime);
         CVs[msg.sender].projects.push(newProject);
     }
@@ -156,7 +157,7 @@ contract CVStore {
     
     function deleteProject (uint index) public {
         require (index < CVs[msg.sender].projects.length);
-        for (uint i = index; i<CVs[msg.sender].projects.length - 1; i++) {
+        for (uint i = index; i<CVs[msg.sender].projects.length - 1; i++){
             CVs[msg.sender].projects[i] = CVs[msg.sender].projects[i+1];
         }
         delete CVs[msg.sender].projects[CVs[msg.sender].projects.length-1];
