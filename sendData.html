@@ -1,0 +1,94 @@
+<html>
+    <body>
+        <span id='msg'></span>
+        Full Name: <input type="text" size=80 id="fullName"><br>
+        <button class="btn" onclick="setFullName()" style="margin:auto;">Submit Full Name!</button><br>
+        Summary: <input type="text" size=80 id="summary"><br>
+        <button class="btn" onclick="setSummary()" style="margin:auto;">Submit Summary!</button><br>
+        Job Company: <input type="text" size=80 id="jobCompany"><br>
+        Job Title: <input type="text" size=80 id="jobTitle"><br>
+        Job Duties: <input type="text" size=80 id="jobDuties"><br>
+        Job Start Date: <input type="text" size=80 id="jobSD"><br>
+        Job End Date (0 for Present): <input type="text" size=80 id="jobED"><br>
+        <button class="btn" onclick="addJob()" style="margin:auto;">Add Job!</button><br>
+        Education Location: <input type="text" size=80 id="eduLocation"><br>
+        Education Degree: <input type="text" size=80 id="eduDegree"><br>
+        Education Start Date: <input type="text" size=80 id="eduSD"><br>
+        Education End Date (0 for Present): <input type="text" size=80 id="eduED"><br>
+        <button class="btn" onclick="addEducation()" style="margin:auto;">Add Education!</button><br>
+        Project Name: <input type="text" size=80 id="projectName"><br>
+        Project Description: <input type="text" size=80 id="projectDesc"><br>
+        Project URL: <input type="text" size=80 id="projectURL"><br>
+        Project Start Date: <input type="text" size=80 id="projectSD"><br>
+        <button class="btn" onclick="addProject()" style="margin:auto;">Add Project!</button><br>
+        Contact Serve Name: <input type="text" size=80 id="contactService"><br>
+        Contact User: <input type="text" size=80 id="contactUserName"><br>
+        <button class="btn" onclick="addContact()" style="margin:auto;">Add Contact!</button><br>
+    
+    
+    <script>
+        window.addEventListener('load', function() {
+
+        if (typeof web3 !== 'undefined') {
+            // Use Mist/MetaMask's provider
+            window.web3 = new Web3(web3.currentProvider);
+   
+            web3.version.getNetwork((err, netId) => {
+            switch (netId) {
+                case "1":
+                console.log('This is mainnet')
+                $("#msg").html("Wrong Network Selected, not safe to continue.");
+                 
+                break
+                case "2":
+                $("#msg").html("Wrong Network Selected, not safe to continue.");
+                break
+                case "3":
+                console.log('This is the ropsten test network.');
+                
+                break
+                default:
+                $("#msg").html("Wrong Network Selected, not safe to continue.");
+            }
+            });
+            etherGuess = web3.eth.contract(CVStoreABI);
+            instance = etherGuess.at(CVStoreAddress);
+        } else {
+            $("#msg").html("There is no web3 found, install MetaMask");
+        }
+        });
+
+        //Connect to web3
+        function setFullName() {
+            instance.setFullName($("#fullName").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            });
+        }
+        function setSummary() {
+            instance.setSummary($("#summary").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            });
+        }
+        function addJob() {
+            instance.addJob($("#jobCompany").val(),$("#jobTitle").val(),$("#jobDuties").val(),$("#jobSD").val(),$("#jobED").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            });
+        }
+        function addEducation() {
+            instance.addEducation($("#eduLocation").val(),$("#eduDegree").val(),$("#eduSD").val(),$("#eduED").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            });
+        }
+        function addProject() {
+            instance.addProject($("#projectName").val(),$("#projectDesc").val(),$("#projectURL").val(),$("#projectSD").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            });
+        }
+        function addContact() {
+            instance.addContact($("#contactService").val(),$("#contactUserName").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            });
+        }
+    
+    
+    </script>1
+    
+    
+    </body>
+
+
+</html>
