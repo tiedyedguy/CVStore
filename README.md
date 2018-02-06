@@ -1,54 +1,34 @@
-v3
-## Welcome to GitHub Pages
+## Welcome to my CVStore Blockchain Project.
 
-You can use the [editor on GitHub](https://github.com/tiedyedguy/CVStore/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Jobs
-#### Company Name
-##### Title
-From [StarTime] to [EndTime]
-
-### Education
-#### Learning Center
-##### knowledgeTitle
-From [StarTime] to [EndTime]
-
-### Projects
-#### Name (url)
-##### Description
-Started: [StartTime]
+This project allows anyone to store a basic Resume/CV on the Ethereum block chain.  The only cost to doing this is the transaction fees, there are no other costs.
 
 
-### Markdown
+### Displaying your own Resume/CV
+This project is currently set up to show the creator's CV, but can easily be changed to show yours.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Here is how to do it:
 
-```markdown
-Syntax highlighted code block
+1. Fork this project
+2. Send your Resume/CV data to the Smart Contract
+3. Change the "Address" variable in the variables.js to your Ethereum Address
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+To send your data to the Smart Contract, you can use the quick page of sendData.html with the use of a software like MetaMask.  Also, you can use a service like www.MyEtherWallet.com 's Contract section.
 
-1. Numbered
-2. List
+## Functions of the Smart Contract
 
-**Bold** and _Italic_ and `Code` text
+The contract is broken up into six sections.  They are "Full Name", "Summary", "Jobs", "Educations", "Projects", and "Contacts."
 
-[Link](url) and ![Image](src)
-```
+The "Full Name" is the name at the top of the Resume/CV.  "Full Name" has two functions called setFullName() and getFullName(address).
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+"Summary" is the executive summary of the Resume/CV.  "Summary" has two functions called setSummary() and getSummary(address).
 
-### Jekyll Themes
+"Jobs" are the listing of employment history. It has the ability to list Company Name, Job Title, Job Duties, Start Date and End Date for each Job.  "Jobs" has five functions: addJob(companyName, companyTitle, companyDuties, StartDate, EndDate), changeJob(index, companyName, companyTitle, companyDuties, StartDate, EndDate), deleteJob(index), getNumberOfJobs(address), getJobs(address, index).  Jobs added to the contract are 0 based index. So the first one you add is 0. If you delete a job in the middle of the arry it will reindex them.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/tiedyedguy/CVStore/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+"Educations" are the listing of educational achievements. It has the ability to list Educational Facility, Educational Degree, Start Date, and End Date for each Educational achievement.  "Educations" has five functions: addEducation(educationLocation, educationDegree, educationStartDate, educationEndDate), changeEducation(index, educationLocation, educationDegree, educationStartDate, educationEndDate), deleteEducation(index), getNumberOfEducations(address), getEducations(address, index).  Educations added to the contract are 0 based index. So the first one you add is 0. If you delete an education in the middle of the arry it will reindex them.
 
-### Support or Contact
+"Projects" are the listing of projects. It has the ability to list Project Name, Project Description, Project URL, and Start Date for each Project.  "Projects" has five functions: addProject(projectName, projectDesc, projectURL, StartDate), changeProject(index, projectName, projectDesc, projectURL, StartDate), deleteProject(index), getNumberOfProjects(address), getProjects(address, index).  Projects added to the contract are 0 based index. So the first one you add is 0. If you delete a project in the middle of the arry it will reindex them.
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+"Contacts" are the listing of contact methods. It has the ability to list a Service Name and User Name for each contact.  "Contacts" has five functions: addContact(contactService, contactUserName), changeContact(index, contactService, contactUserName), deleteContact(index), getNumberOfContacts(address), getContacts(address, index).  Contacts added to the contract are 0 based index. So the first one you add is 0. If you delete a contact in the middle of the arry it will reindex them.
+Some example contacts to add are ("LinkedIn", "TieDyedGuy") or ("GitHub","TieDyedGuy")
+
