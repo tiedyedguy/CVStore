@@ -1,6 +1,7 @@
 <html>
     <body>
-        <span id='msg'></span>
+        <h1><span id='msg'></span></h1><br><br>
+        <h2>Adding Stuff Section.</h2>
         Full Name: <input type="text" size=80 id="fullName"><br>
         <button class="btn" onclick="setFullName()" style="margin:auto;">Submit Full Name!</button><br><br>
         Summary: <input type="text" size=80 id="summary"><br>
@@ -24,7 +25,12 @@
         Contact Serve Name: <input type="text" size=80 id="contactService"><br>
         Contact User: <input type="text" size=80 id="contactUserName"><br>
         <button class="btn" onclick="addContact()" style="margin:auto;">Add Contact!</button><br><br>
-    
+        <br><br>
+        <h2>Changing Stuff Section.</h2>
+        <h3>After submitting a change, wait for the TX to complete then reload this page!</h3>
+        <h2>Deleting Stuff Section.</h2>
+        <h3>After submitting a delete, wait for the TX to complete then reload this page!</h3>
+
         <script src="./variable.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>   
 
@@ -39,7 +45,7 @@
             switch (netId) {
                 case "1":
                 console.log('This is mainnet')
-                $("#msg").html("Wrong Network Selected, not safe to continue.");
+                
                  
                 break
                 case "2":
@@ -47,7 +53,7 @@
                 break
                 case "3":
                 console.log('This is the ropsten test network.');
-                
+                $("#msg").html("Wrong Network Selected, not safe to continue.");
                 break
                 default:
                 $("#msg").html("Wrong Network Selected, not safe to continue.");
