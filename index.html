@@ -109,69 +109,72 @@
       window.web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/"));
       cvStore = web3.eth.contract(cvABI);
       cvInstance = cvStore.at(cvContactAddress);
+      getCV();
 
-      cvInstance.getFullName.call(address, async function (errorFN, resultFN) {
-        document.title = resultFN + '\'s Blockchain CV';
-        $("#fullName").text(resultFN);
-      });
-      cvInstance.getSummary.call(address, async function (errorSummary, resultSummary) {  
-        $("#summary").text(resultSummary);
-      });
-      cvInstance.numberOfProjects.call(address, async function (errorNumProjects, resultNumProjects) { 
-         let numberOfProjects = Number(resultNumProjects.valueOf());
-         $("#projectList").empty();
-         
-         for (i = 0; i < numberOfProjects; i++) {
-          cvInstance.getProject.call(address, i, async function (errorProject, resultProject) { 
-            let htmlString ="";
-            htmlString += "<h4 id='name'>" + resultProject[0] + " (<a href='" + resultProject[2] + "'>Link!</a>)</h4>";
-            htmlString += "<h5 id='title'>" + resultProject[1] + "</h5>";
-            htmlString += "<p>Started: " + monthYearFromBigNum(resultProject[3]) + "</p>";
-            $("#projectList").append(htmlString);
-          });
-         }
-      });
-      cvInstance.numberOfJobs.call(address, async function (errorNumJobs, resultNumJobs) { 
-         let numberOfJobs = Number(resultNumJobs.valueOf());
-         $("#jobList").empty();
-         
-         for (i = 0; i < numberOfJobs; i++) {
-          cvInstance.getJob.call(address, i, async function (errorJob, resultJob) { 
-            let htmlString ="";
-            htmlString += "<h4 id='description'>" + resultJob[1] + "</h5>";
-            htmlString += "<h5 id='name'>" + resultJob[0] + "</h4>";
-            htmlString += "<p>Duties: " + resultJob[2] + "<br>";
-            htmlString += "Started: " + monthYearFromBigNum(resultJob[3]) + " to " + monthYearFromBigNum(resultJob[4]) + "</p>";
-            $("#jobList").append(htmlString);
-          });
-         }
-      });
-      cvInstance.numberOfEducations.call(address, async function (errorNumEducations, resultNumEducations) { 
-         let numberOfEducations = Number(resultNumEducations.valueOf());
-         $("#educationList").empty();
-         
-         for (i = 0; i < numberOfEducations; i++) {
-          cvInstance.getEducation.call(address, i, async function (errorEducation, resultEducation) { 
-            let htmlString ="";
-            htmlString += "<h4 id='name'>" + resultEducation[0] + "</h4>";
-            htmlString += "<h5 id='description'>" + resultEducation[1] + "</h5>";
-            htmlString += "<p>Started: " + monthYearFromBigNum(resultEducation[2]) + " to " + monthYearFromBigNum(resultEducation[3]) + "</p>";
-            $("#educationList").append(htmlString);
-          });
-         }
-      });
-      cvInstance.numberOfContacts.call(address, async function (errorNumContacts, resultNumContacts) { 
-         let numberOfContacts = Number(resultNumContacts.valueOf());
-         $("#contactList").empty();
-         
-         for (i = 0; i < numberOfContacts; i++) {
-          cvInstance.getContact.call(address, i, async function (errorContact, resultContact) { 
-            let htmlString ="";
-            htmlString += "<h4 id='name'>" + contactFormat(resultContact) + "</h4>";
-            $("#contactList").append(htmlString);
-          });
-         }
-      });
+      async function getCV() {
+        cvInstance.getFullName.call(address, async function (errorFN, resultFN) {
+          document.title = resultFN + '\'s Blockchain CV';
+          $("#fullName").text(resultFN);
+        });
+        cvInstance.getSummary.call(address, async function (errorSummary, resultSummary) {  
+          $("#summary").text(resultSummary);
+        });
+        cvInstance.numberOfProjects.call(address, async function (errorNumProjects, resultNumProjects) { 
+          let numberOfProjects = Number(resultNumProjects.valueOf());
+          $("#projectList").empty();
+          
+          for (i = 0; i < numberOfProjects; i++) {
+            await cvInstance.getProject.call(address, i, async function (errorProject, resultProject) { 
+              let htmlString ="";
+              htmlString += "<h4 id='name'>" + resultProject[0] + " (<a href='" + resultProject[2] + "'>Link!</a>)</h4>";
+              htmlString += "<h5 id='title'>" + resultProject[1] + "</h5>";
+              htmlString += "<p>Started: " + monthYearFromBigNum(resultProject[3]) + "</p>";
+              $("#projectList").append(htmlString);
+            });
+          }
+        });
+        cvInstance.numberOfJobs.call(address, async function (errorNumJobs, resultNumJobs) { 
+          let numberOfJobs = Number(resultNumJobs.valueOf());
+          $("#jobList").empty();
+          
+          for (i = 0; i < numberOfJobs; i++) {
+            await cvInstance.getJob.call(address, i, async function (errorJob, resultJob) { 
+              let htmlString ="";
+              htmlString += "<h4 id='description'>" + resultJob[1] + "</h5>";
+              htmlString += "<h5 id='name'>" + resultJob[0] + "</h4>";
+              htmlString += "<p>Duties: " + resultJob[2] + "<br>";
+              htmlString += "Started: " + monthYearFromBigNum(resultJob[3]) + " to " + monthYearFromBigNum(resultJob[4]) + "</p>";
+              $("#jobList").append(htmlString);
+            });
+          }
+        });
+        cvInstance.numberOfEducations.call(address, async function (errorNumEducations, resultNumEducations) { 
+          let numberOfEducations = Number(resultNumEducations.valueOf());
+          $("#educationList").empty();
+          
+          for (i = 0; i < numberOfEducations; i++) {
+            await cvInstance.getEducation.call(address, i, async function (errorEducation, resultEducation) { 
+              let htmlString ="";
+              htmlString += "<h4 id='name'>" + resultEducation[0] + "</h4>";
+              htmlString += "<h5 id='description'>" + resultEducation[1] + "</h5>";
+              htmlString += "<p>Started: " + monthYearFromBigNum(resultEducation[2]) + " to " + monthYearFromBigNum(resultEducation[3]) + "</p>";
+              $("#educationList").append(htmlString);
+            });
+          }
+        });
+        cvInstance.numberOfContacts.call(address, async function (errorNumContacts, resultNumContacts) { 
+          let numberOfContacts = Number(resultNumContacts.valueOf());
+          $("#contactList").empty();
+          
+          for (i = 0; i < numberOfContacts; i++) {
+            await cvInstance.getContact.call(address, i, async function (errorContact, resultContact) { 
+              let htmlString ="";
+              htmlString += "<h4 id='name'>" + contactFormat(resultContact) + "</h4>";
+              $("#contactList").append(htmlString);
+            });
+          }
+        });
+    }
       
 
       function monthYearFromBigNum(bigNum) {
