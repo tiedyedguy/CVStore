@@ -84,7 +84,7 @@ contract CVStore {
         return CVs[addressCV].contacts.length;
     }
     
-    function getContacts (address addressCV, uint index) view public returns(string, string) {
+    function getContact (address addressCV, uint index) view public returns(string, string) {
         return (CVs[addressCV].contacts[index].typeOfService, CVs[addressCV].contacts[index].userName);
     }
     
@@ -112,7 +112,7 @@ contract CVStore {
         return CVs[addressCV].jobs.length;
     }
     
-    function getJobs (address addressCV, uint index) view public returns(string, string, string, uint, uint) {
+    function getJob (address addressCV, uint index) view public returns(string, string, string, uint, uint) {
         return (CVs[addressCV].jobs[index].companyName, CVs[addressCV].jobs[index].title,  CVs[addressCV].jobs[index].duties, CVs[addressCV].jobs[index].startTime, CVs[addressCV].jobs[index].endTime);
     }
     
@@ -140,7 +140,7 @@ contract CVStore {
         return CVs[addressCV].educations.length;
     }
     
-    function getEducations (address addressCV, uint index) view public returns(string, string, uint, uint) {
+    function getEducation (address addressCV, uint index) view public returns(string, string, uint, uint) {
         return (CVs[addressCV].educations[index].learningCenter, CVs[addressCV].educations[index].degree,  CVs[addressCV].educations[index].startTime, CVs[addressCV].educations[index].endTime);
     }
 
@@ -168,7 +168,7 @@ contract CVStore {
         return CVs[addressCV].projects.length;
     }
     
-    function getProjects (address addressCV, uint index) view public returns(string, string, string, uint) {
+    function getProject (address addressCV, uint index) view public returns(string, string, string, uint) {
         return (CVs[addressCV].projects[index].name, CVs[addressCV].projects[index].description,  CVs[addressCV].projects[index].url, CVs[addressCV].projects[index].startTime);
     }   
     
