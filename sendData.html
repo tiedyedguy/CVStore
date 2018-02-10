@@ -25,7 +25,7 @@
         Contact User: <input type="text" size=80 id="contactUserName"><br>
         <button class="btn" onclick="addContact()" style="margin:auto;">Add Contact!</button><br><br>
     
-    
+        <script src="./variable.js"></script>
     <script>
         window.addEventListener('load', function() {
 
@@ -51,6 +51,8 @@
                 $("#msg").html("Wrong Network Selected, not safe to continue.");
             }
             });
+
+
             etherGuess = web3.eth.contract(CVStoreABI);
             instance = etherGuess.at(CVStoreAddress);
         } else {
