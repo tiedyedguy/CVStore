@@ -53,8 +53,8 @@
             });
 
 
-            etherGuess = web3.eth.contract(CVStoreABI);
-            instance = etherGuess.at(CVStoreAddress);
+            etherGuess = web3.eth.contract(cvABI);
+            instance = etherGuess.at(cvContactAddress);
         } else {
             $("#msg").html("There is no web3 found, install MetaMask");
         }
