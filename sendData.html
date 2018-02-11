@@ -103,6 +103,7 @@
         });
 
         function getTime(dateIn) {
+            console.log("DateIn",dateIn);
             if (dateIn == 0) {
                 return 0; 
             } else {
@@ -128,7 +129,7 @@
             });
         }
         function addProject() {
-            instance.addProject($("#projectName").val(),$("#projectDesc").val(),getTime($("#projectURL").val()),getTime($("#projectSD").val()), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
+            instance.addProject($("#projectName").val(),$("#projectDesc").val(),$("#projectURL").val(),getTime($("#projectSD").val()), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function addContact() {
