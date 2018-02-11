@@ -183,7 +183,7 @@
         let number = Number(bigNum.valueOf());
         if (number == 0 ) return "Present";
         console.log("Number",number);
-        let date = new Date(number * 1000);
+        let date = new Date((number * 1000) + 60000);
         console.log("date",date);
         return String(date.getMonth() + "/" + date.getFullYear());
       }
