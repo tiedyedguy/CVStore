@@ -100,6 +100,22 @@
         } else {
             $("#msg").html("There is no web3 found, install MetaMask");
         }
+        instance.numberOfJobs.call(web3.eth.defaultAccount, async function (errorNumJobs, resultNumJobs) { 
+            window.numberOfJobs = resultNumJobs;
+        });
+        instance.numberOfEducations.call(web3.eth.defaultAccount, async function (errorNumJobs, resultNumEdu) { 
+            window.numberOfEducations = resultNumEdu;
+        });
+        instance.numberOfProjects.call(web3.eth.defaultAccount, async function (errorNumJobs, resultNumProj) { 
+            window.numberOfProjects = resultNumProj;
+        });
+        instance.numberOfContacts.call(web3.eth.defaultAccount, async function (errorNumJobs, resultContacts) { 
+            window.numberOfContacts = resultContacts;
+        });
+
+
+
+
         });
 
         function getTime(dateIn) {
