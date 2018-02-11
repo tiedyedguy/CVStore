@@ -103,8 +103,12 @@
         });
 
         function getTime(dateIn) {
+            if (dateIn == 0) {
+                return 0; 
+            } else {
             date = new Date(dateIn).getTime() / 1000;
             return date;
+            }
         }
         //Connect to web3
         function setFullName() {
