@@ -61,6 +61,16 @@
     <script>
         window.addEventListener('load', function() {
         $( "#jobSD" ).datepicker();
+        $( "#jobED" ).datepicker();
+        $( "#eduSD" ).datepicker();
+        $( "#eduED" ).datepicker();
+        $( "#projectSD" ).datepicker();
+        $( "#jobSDCHG" ).datepicker();
+        $( "#jobEDCHG" ).datepicker();
+        $( "#eduSDCHG" ).datepicker();
+        $( "#eduEDCHG" ).datepicker();
+        $( "#projectSDCHG" ).datepicker();
+        
         if (typeof web3 !== 'undefined') {
             // Use Mist/MetaMask's provider
             window.web3 = new Web3(web3.currentProvider);
@@ -92,6 +102,10 @@
         }
         });
 
+        function getTime(dateIn) {
+            date = new Date(dateIn).getTime() / 1000;
+            return date;
+        }
         //Connect to web3
         function setFullName() {
             instance.setFullName($("#fullName").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
@@ -102,15 +116,15 @@
             });
         }
         function addJob() {
-            instance.addJob($("#jobCompany").val(),$("#jobTitle").val(),$("#jobDuties").val(),$("#jobSD").val(),$("#jobED").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
+            instance.addJob($("#jobCompany").val(),$("#jobTitle").val(),$("#jobDuties").val(),getTime($("#jobSD").val()),getTime($("#jobED").val()), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function addEducation() {
-            instance.addEducation($("#eduLocation").val(),$("#eduDegree").val(),$("#eduSD").val(),$("#eduED").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
+            instance.addEducation($("#eduLocation").val(),$("#eduDegree").val(),getTime($("#eduSD").val()),getTime($("#eduED").val()), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function addProject() {
-            instance.addProject($("#projectName").val(),$("#projectDesc").val(),$("#projectURL").val(),$("#projectSD").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
+            instance.addProject($("#projectName").val(),$("#projectDesc").val(),getTime($("#projectURL").val()),getTime($("#projectSD").val()), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function addContact() {
@@ -119,15 +133,15 @@
         }
         
         function chgJob() {
-            instance.changeJob($("#jobCompanyCHG").val(),$("#jobTitleCHG").val(),$("#jobDutiesCHG").val(),$("#jobSDCHG").val(),$("#jobEDCHG").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
+            instance.changeJob($("#jobCompanyCHG").val(),$("#jobTitleCHG").val(),$("#jobDutiesCHG").val(),getTime($("#jobSDCHG").val()),getTime($("#jobEDCHG").val()), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function chgEducation() {
-            instance.changeEducation($("#eduLocationCHG").val(),$("#eduDegreeCHG").val(),$("#eduSDCHG").val(),$("#eduEDCHG").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
+            instance.changeEducation($("#eduLocationCHG").val(),$("#eduDegreeCHG").val(),getTime($("#eduSDCHG").val()),getTime($("#eduEDCHG").val()), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function chgProject() {
-            instance.changeProject($("#projectNameCHG").val(),$("#projectDescCHG").val(),$("#projectURLCHG").val(),$("#projectSDCHG").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
+            instance.changeProject($("#projectNameCHG").val(),$("#projectDescCHG").val(),$("#projectURLCHG").val(),getTime($("#projectSDCHG").val()), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function chgContact() {
