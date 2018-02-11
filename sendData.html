@@ -2,10 +2,11 @@
     <body>
         <h1><span id='msg'></span></h1><br><br>
         <h2>Adding Stuff Section.</h2>
+        <h3>If ordering matters, await TX to finish before sending another.</h3>
         Full Name: <input type="text" size=80 id="fullName"><br>
-        <button class="btn" onclick="setFullName()" style="margin:auto;">Submit Full Name!</button><br><br>
+        <button class="btn" onclick="setFullName()" style="margin:auto;">Submit/Change Full Name!</button><br><br>
         Summary: <input type="text" size=80 id="summary"><br>
-        <button class="btn" onclick="setSummary()" style="margin:auto;">Submit Summary!</button><br><br>
+        <button class="btn" onclick="setSummary()" style="margin:auto;">Submit/Change Summary!</button><br><br>
         Job Company: <input type="text" size=80 id="jobCompany"><br>
         Job Title: <input type="text" size=80 id="jobTitle"><br>
         Job Duties: <input type="text" size=80 id="jobDuties"><br>
@@ -27,7 +28,27 @@
         <button class="btn" onclick="addContact()" style="margin:auto;">Add Contact!</button><br><br>
         <br><br>
         <h2>Changing Stuff Section.</h2>
-        <h3>After submitting a change, wait for the TX to complete then reload this page!</h3>
+        <h3>Enter what to change to, do not leave things blank unless changing them to blank! After submitting a change, wait for the TX to complete then reload this page!</h3>
+        Job Company: <input type="text" size=80 id="jobCompanyCHG"><br>
+        Job Title: <input type="text" size=80 id="jobTitleCHG"><br>
+        Job Duties: <input type="text" size=80 id="jobDutiesCHG"><br>
+        Job Start Date: <input type="text" size=80 id="jobSDCHG"><br>
+        Job End Date (0 for Present): <input type="text" size=80 id="jobEDCHG"><br>
+        <button class="btn" onclick="chgJob()" style="margin:auto;">Change Job!</button><br><br>
+        Education Location: <input type="text" size=80 id="eduLocationCHG"><br>
+        Education Degree: <input type="text" size=80 id="eduDegreeCHG"><br>
+        Education Start Date: <input type="text" size=80 id="eduSDCHG"><br>
+        Education End Date (0 for Present): <input type="text" size=80 id="eduEDCHG"><br>
+        <button class="btn" onclick="chgEducation()" style="margin:auto;">Change Education!</button><br><br>
+        Project Name: <input type="text" size=80 id="projectNameCHG"><br>
+        Project Description: <input type="text" size=80 id="projectDescCHG"><br>
+        Project URL: <input type="text" size=80 id="projectURLCHG"><br>
+        Project Start Date: <input type="text" size=80 id="projectSDCHG"><br>
+        <button class="btn" onclick="chgProject()" style="margin:auto;">Change Project!</button><br><br>
+        Contact Serve Name: <input type="text" size=80 id="contactServiceCHG"><br>
+        Contact User: <input type="text" size=80 id="contactUserNameCHG"><br>
+        <button class="btn" onclick="chgContact()" style="margin:auto;">Change Contact!</button><br><br>
+        <br><br>
         <h2>Deleting Stuff Section.</h2>
         <h3>After submitting a delete, wait for the TX to complete then reload this page!</h3>
 
@@ -91,6 +112,23 @@
         }
         function addContact() {
             instance.addContact($("#contactService").val(),$("#contactUserName").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            });
+        }
+        
+        function chgJob() {
+            instance.changeJob($("#jobCompanyCHG").val(),$("#jobTitleCHG").val(),$("#jobDutiesCHG").val(),$("#jobSDCHG").val(),$("#jobEDCHG").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            });
+        }
+        function chgEducation() {
+            instance.changeEducation($("#eduLocationCHG").val(),$("#eduDegreeCHG").val(),$("#eduSDCHG").val(),$("#eduEDCHG").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            });
+        }
+        function chgProject() {
+            instance.changeProject($("#projectNameCHG").val(),$("#projectDescCHG").val(),$("#projectURLCHG").val(),$("#projectSDCHG").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            });
+        }
+        function chgContact() {
+            instance.changeContact($("#contactServiceCHG").val(),$("#contactUserNameCHG").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
             });
         }
     
