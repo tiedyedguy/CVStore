@@ -91,44 +91,44 @@
 
         //Connect to web3
         function setFullName() {
-            instance.setFullName($("#fullName").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            instance.setFullName($("#fullName").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function setSummary() {
-            instance.setSummary($("#summary").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            instance.setSummary($("#summary").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function addJob() {
-            instance.addJob($("#jobCompany").val(),$("#jobTitle").val(),$("#jobDuties").val(),$("#jobSD").val(),$("#jobED").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            instance.addJob($("#jobCompany").val(),$("#jobTitle").val(),$("#jobDuties").val(),$("#jobSD").val(),$("#jobED").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function addEducation() {
-            instance.addEducation($("#eduLocation").val(),$("#eduDegree").val(),$("#eduSD").val(),$("#eduED").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            instance.addEducation($("#eduLocation").val(),$("#eduDegree").val(),$("#eduSD").val(),$("#eduED").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function addProject() {
-            instance.addProject($("#projectName").val(),$("#projectDesc").val(),$("#projectURL").val(),$("#projectSD").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            instance.addProject($("#projectName").val(),$("#projectDesc").val(),$("#projectURL").val(),$("#projectSD").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function addContact() {
-            instance.addContact($("#contactService").val(),$("#contactUserName").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            instance.addContact($("#contactService").val(),$("#contactUserName").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         
         function chgJob() {
-            instance.changeJob($("#jobCompanyCHG").val(),$("#jobTitleCHG").val(),$("#jobDutiesCHG").val(),$("#jobSDCHG").val(),$("#jobEDCHG").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            instance.changeJob($("#jobCompanyCHG").val(),$("#jobTitleCHG").val(),$("#jobDutiesCHG").val(),$("#jobSDCHG").val(),$("#jobEDCHG").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function chgEducation() {
-            instance.changeEducation($("#eduLocationCHG").val(),$("#eduDegreeCHG").val(),$("#eduSDCHG").val(),$("#eduEDCHG").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            instance.changeEducation($("#eduLocationCHG").val(),$("#eduDegreeCHG").val(),$("#eduSDCHG").val(),$("#eduEDCHG").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function chgProject() {
-            instance.changeProject($("#projectNameCHG").val(),$("#projectDescCHG").val(),$("#projectURLCHG").val(),$("#projectSDCHG").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            instance.changeProject($("#projectNameCHG").val(),$("#projectDescCHG").val(),$("#projectURLCHG").val(),$("#projectSDCHG").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
         function chgContact() {
-            instance.changeContact($("#contactServiceCHG").val(),$("#contactUserNameCHG").val(), {value: 0,from: web3.eth.defaultAccount, gas: 100000}, function(error, result){
+            instance.changeContact($("#contactServiceCHG").val(),$("#contactUserNameCHG").val(), {value: 0,from: web3.eth.defaultAccount}, function(error, result){
             });
         }
     
