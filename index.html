@@ -125,6 +125,7 @@
           
           for (i = 0; i < numberOfProjects; i++) {
             await cvInstance.getProject.call(address, i, async function (errorProject, resultProject) { 
+              console.log(resultProject);
               let htmlString ="";
               htmlString += "<h4 id='name'>" + resultProject[0] + " (<a href='" + resultProject[2] + "'>Link!</a>)</h4>";
               htmlString += "<h5 id='title'>" + resultProject[1] + "</h5>";
