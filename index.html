@@ -181,12 +181,12 @@
 
       function monthYearFromBigNum(bigNum) {
         
-        console.log("BigNum",bigNum);
+        //console.log("BigNum",bigNum);
         let number = Number(bigNum.valueOf());
         if (number == 0 ) return "Present";
-        console.log("Number",number);
+        //console.log("Number",number);
         let date = new Date((number * 1000) + 60000);
-        console.log("date",date);
+        //console.log("date",date);
         return String(date.getMonth() + "/" + date.getFullYear());
       }
 
