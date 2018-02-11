@@ -125,7 +125,7 @@
           
           for (i = 0; i < numberOfProjects; i++) {
             await cvInstance.getProject.call(address, i, async function (errorProject, resultProject) { 
-              console.log(resultProject);
+              
               let htmlString ="";
               htmlString += "<h4 id='name'>" + resultProject[0] + " (<a href='" + resultProject[2] + "'>Link!</a>)</h4>";
               htmlString += "<h5 id='title'>" + resultProject[1] + "</h5>";
@@ -140,6 +140,7 @@
           
           for (i = 0; i < numberOfJobs; i++) {
             await cvInstance.getJob.call(address, i, async function (errorJob, resultJob) { 
+              console.log(resultJob);
               let htmlString ="";
               htmlString += "<h4 id='description'>" + resultJob[1] + "</h5>";
               htmlString += "<h5 id='name'>" + resultJob[0] + "</h4>";
