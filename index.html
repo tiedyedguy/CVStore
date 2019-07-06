@@ -125,9 +125,13 @@
           
           for (i = 0; i < numberOfProjects; i++) {
             await cvInstance.getProject.call(address, i, async function (errorProject, resultProject) { 
-              
+              console.log(resultProject);
               let htmlString ="";
-              htmlString += "<h4 id='name'>" + resultProject[0] + " (<a href='" + resultProject[2] + "'>Link!</a>)</h4>";
+              htmlString += "<h4 id='name'>" + resultProject[0];
+              if (resultProject[2] != "") {
+                htmlString += " (<a href='" + resultProject[2] + "'>Link!</a>)";
+              }
+              htmlString += "</h4>";
               htmlString += "<h5 id='title'>" + resultProject[1] + "</h5>";
               htmlString += "<p>Started: " + monthYearFromBigNum(resultProject[3]) + "</p>";
               $("#projectList").append(htmlString);
@@ -181,8 +185,10 @@
 
       function monthYearFromBigNum(bigNum) {
         
+        
         //console.log("BigNum",bigNum);
         let number = Number(bigNum.valueOf());
+        //console.log(number);
         if (number == 0 ) return "Present";
         //console.log("Number",number);
         let date = new Date(number * 1000);
